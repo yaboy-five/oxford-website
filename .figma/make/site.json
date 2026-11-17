@@ -1,0 +1,10 @@
+{
+  "description": "Provides a bootstrapped foundation for an imported project, with deployment and preview setup verified for teams preparing an initial release.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

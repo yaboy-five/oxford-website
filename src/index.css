@@ -1,0 +1,362 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    font-family: "DM Sans", sans-serif;
+    color: #172c32;
+    background: #f7f7f2;
+    font-synthesis: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+  }
+
+  button,
+  a {
+    cursor: pointer;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #5f968c;
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    color: #fff;
+    background: #477c74;
+  }
+}
+
+@theme {
+  --font-serif: "DM Serif Display", serif;
+}
+
+@layer components {
+  .nav-link {
+    position: relative;
+    padding-block: 1.9rem;
+    color: #3e5357;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.015em;
+    transition: color 180ms ease;
+  }
+
+  .nav-link::after {
+    position: absolute;
+    right: 0;
+    bottom: 1.2rem;
+    left: 0;
+    height: 1px;
+    content: "";
+    background: #477c74;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 240ms ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #14383d;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .button-primary,
+  .button-secondary,
+  .button-light {
+    display: inline-flex;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.35rem;
+    border: 1px solid transparent;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition:
+      color 200ms ease,
+      background 200ms ease,
+      border-color 200ms ease,
+      transform 200ms ease;
+  }
+
+  .button-primary {
+    color: white;
+    background: #14383d;
+  }
+
+  .button-primary:hover {
+    background: #285b5f;
+    transform: translateY(-2px);
+  }
+
+  .button-secondary {
+    color: #14383d;
+    border-color: #14383d4d;
+    background: transparent;
+  }
+
+  .button-secondary:hover {
+    border-color: #14383d;
+    background: #ffffff55;
+  }
+
+  .button-light {
+    color: #14383d;
+    background: #f7f7f2;
+  }
+
+  .button-light:hover {
+    background: #9bc8bf;
+    transform: translateY(-2px);
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .section-pad {
+    padding-block: clamp(5.5rem, 10vw, 9rem);
+  }
+
+  .section-title {
+    max-width: 42rem;
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2.8rem, 5vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+
+  .body-copy {
+    max-width: 40rem;
+    color: #455d61;
+    font-size: 1.08rem;
+    line-height: 1.85;
+  }
+
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #315f5b;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: gap 180ms ease;
+  }
+
+  .text-link:hover {
+    gap: 0.9rem;
+  }
+
+  .field-label {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .field-input {
+    display: block;
+    width: 100%;
+    min-height: 3.4rem;
+    padding: 0.8rem 0.95rem;
+    border: 1px solid #14383d38;
+    border-radius: 0;
+    color: #172c32;
+    background: #fff;
+    transition: border-color 180ms ease;
+  }
+
+  .field-input:focus {
+    border-color: #477c74;
+    outline: none;
+  }
+
+  .field-input::placeholder {
+    color: #728286;
+  }
+
+  .footer-heading {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .admin-card {
+    border: 1px solid rgb(21 40 46 / 10%);
+    background: white;
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .admin-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .admin-kicker {
+    color: #6c8287;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .admin-title {
+    margin-top: 0.25rem;
+    font-family: "DM Serif Display", serif;
+    font-size: 1.65rem;
+  }
+
+  .admin-field-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #536d72;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .admin-field {
+    display: block;
+    width: 100%;
+    min-height: 2.8rem;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid rgb(21 40 46 / 20%);
+    border-radius: 0;
+    font-size: 0.85rem;
+  }
+
+  .admin-button {
+    display: inline-flex;
+    min-height: 2.7rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition:
+      filter 160ms ease,
+      transform 160ms ease;
+  }
+
+  .admin-button:hover,
+  .admin-mini:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+  }
+
+  .admin-mini {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    transition:
+      filter 160ms ease,
+      transform 160ms ease;
+  }
+
+  .admin-text-link {
+    color: #416970;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .admin-status {
+    display: inline-flex;
+    width: fit-content;
+    border-radius: 999px;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  .admin-status.pending {
+    color: #775910;
+    background: #fff0bd;
+  }
+
+  .admin-status.upcoming {
+    color: #176d4b;
+    background: #d9f3e8;
+  }
+
+  .admin-status.completed {
+    color: #285f79;
+    background: #dbeef8;
+  }
+
+  .admin-status.cancelled {
+    color: #6e4b49;
+    background: #f1e7e6;
+  }
+
+  .admin-status.emergency {
+    color: #9c3025;
+    background: #ffe0dc;
+  }
+}
+
+.map-pattern {
+  background-color: #dfeae6;
+  background-image:
+    linear-gradient(
+      30deg,
+      transparent 24%,
+      #9cbab35c 25%,
+      #9cbab35c 26%,
+      transparent 27%,
+      transparent 74%,
+      #9cbab35c 75%,
+      #9cbab35c 76%,
+      transparent 77%
+    ),
+    linear-gradient(
+      120deg,
+      transparent 24%,
+      #9cbab35c 25%,
+      #9cbab35c 26%,
+      transparent 27%,
+      transparent 74%,
+      #9cbab35c 75%,
+      #9cbab35c 76%,
+      transparent 77%
+    );
+  background-size: 78px 78px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
