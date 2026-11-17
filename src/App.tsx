@@ -1,9 +1,9 @@
 import { FormEvent, ReactNode, useEffect, useState } from "react";
 import { AdminLogin, AdminPortal, seedAppointments, type AdminAppointment } from "./AdminPanel";
-import aaidLogo from "./src/assets/associates/aaid.png";
-import invisalignLogo from "./src/assets/associates/invisalign-provider.png";
-import smilelignLogo from "./src/assets/associates/smilelign.png";
-import clinicLogo from "./src/assets/oxford-dental-centre-logo.png";
+import aaidLogo from "./assets/associates/aaid.png";
+import invisalignLogo from "./assets/associates/invisalign-provider.png";
+import smilelignLogo from "./assets/associates/smilelign.png";
+import clinicLogo from "./assets/oxford-dental-centre-logo.png";
 
 type Page =
   | "home"
@@ -917,7 +917,7 @@ function AboutPage({ navigate }: { navigate: (page: Page) => void }) {
                 <img
                   alt="Dr. Leonard Bowora, principal dentist at Oxford Dental Centre"
                   className="aspect-[.74] w-full object-cover object-top"
-                  src="./public/dr-leonard-bowora.png"
+                  src="/dr-leonard-bowora.png"
                 />
               </div>
               <div>
